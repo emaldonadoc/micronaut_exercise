@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.example
+testFramework: spock
+sourceLanguage: groovy
+buildTool: gradle
+features: [annotation-api, app-name, data, data-jpa, docker, file-watch, gradle, groovy, groovy-application, h2, http-client, jdbc-hikari, log4j2, netty-server, readme, shade, spock, yaml]
