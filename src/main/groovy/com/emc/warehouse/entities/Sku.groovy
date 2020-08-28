@@ -19,6 +19,8 @@ class Sku {
 
   SkuType type
 
+  Sku() {}
+
   Sku(SkuDto skuDto) {
     this.description = skuDto.description
     this.type - skuDto.type
