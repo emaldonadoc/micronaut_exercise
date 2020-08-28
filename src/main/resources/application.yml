@@ -1,4 +1,6 @@
 micronaut:
+  server:
+    port: 18080
   application:
     name: micronaut
 datasources:
