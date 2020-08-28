@@ -19,9 +19,10 @@ class SkuServiceSpec extends Specification {
 
   def 'Should fetch sku by id'() {
     when:
-      skuService.fetchSkuById(100L)
+      def result = skuService.fetchSkuById(100L)
 
     then:
+      result instanceof Sku
       1 * skuRepository.findById(100L) >> Optional.of(new Sku(description: 'test', id: 100))
       notThrown(NotFoundException)
   }
