@@ -1,6 +1,7 @@
 micronaut:
   server:
     port: 18080
+    context-path: /api/v1/warehouse
   application:
     name: micronaut
 datasources:
@@ -11,4 +12,4 @@ datasources:
     password: ''
     schema-generate: CREATE_DROP
     dialect: H2
-jpa.default.properties.hibernate.hbm2ddl.auto: validate
+jpa.default.properties.hibernate.hbm2ddl.auto: create-drop

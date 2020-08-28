@@ -46,7 +46,7 @@ dependencies {
 
 test.classpath += configurations.developmentOnly
 
-mainClassName = "com.example.Application"
+mainClassName = "com.emc.warehouse.Application"
 
 // use JUnit 5 platform
 test {

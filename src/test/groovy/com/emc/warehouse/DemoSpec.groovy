@@ -1,4 +1,4 @@
-package com.example
+package com.emc.warehouse
 
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.annotation.MicronautTest

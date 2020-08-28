@@ -1,4 +1,4 @@
-package com.example
+package com.emc.warehouse
 
 import io.micronaut.runtime.Micronaut
 import groovy.transform.CompileStatic
