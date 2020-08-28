@@ -7,5 +7,6 @@ import io.micronaut.data.repository.CrudRepository
 @Repository
 interface SkuRepository extends CrudRepository<Sku, Long> {
   Optional<Sku> findById(Long id)
+
   Sku save(Sku sku)
 }

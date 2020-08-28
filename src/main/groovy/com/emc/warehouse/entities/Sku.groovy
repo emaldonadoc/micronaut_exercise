@@ -1,5 +1,6 @@
 package com.emc.warehouse.entities
 
+import com.emc.warehouse.dtos.SkuDto
 import com.emc.warehouse.enums.SkuType
 
 import javax.persistence.Entity
@@ -17,4 +18,9 @@ class Sku {
   String description
 
   SkuType type
+
+  Sku(SkuDto skuDto) {
+    this.description = skuDto.description
+    this.type - skuDto.type
+  }
 }

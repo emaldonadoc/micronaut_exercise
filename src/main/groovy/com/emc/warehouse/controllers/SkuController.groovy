@@ -1,6 +1,6 @@
 package com.emc.warehouse.controllers
 
-import com.emc.warehouse.entities.Sku
+import com.emc.warehouse.dtos.SkuDto
 import com.emc.warehouse.services.SkuService
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
@@ -25,7 +25,7 @@ class SkuController {
   }
 
   @Put
-  HttpResponse saveSku(@Body Sku sku) {
-    HttpResponse.noContent()
+  HttpResponse saveSku(@Body SkuDto sku) {
+    HttpResponse.created(skuService.saveSku(sku))
   }
 }
