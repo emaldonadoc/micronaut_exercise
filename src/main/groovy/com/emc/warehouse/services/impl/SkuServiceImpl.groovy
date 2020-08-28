@@ -5,11 +5,11 @@ import com.emc.warehouse.entities.Sku
 import com.emc.warehouse.exceptions.NotFoundException
 import com.emc.warehouse.repositories.SkuRepository
 import com.emc.warehouse.services.SkuService
-import io.micronaut.runtime.context.scope.ThreadLocal
 
 import javax.inject.Inject
+import javax.inject.Singleton
 
-@ThreadLocal
+@Singleton
 class SkuServiceImpl implements SkuService {
 
   @Inject
