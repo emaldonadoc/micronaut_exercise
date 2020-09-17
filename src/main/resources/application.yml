@@ -12,4 +12,8 @@ datasources:
     password: password
     schema-generate: UPDATE
     dialect: MYSQL
+endpoints:
+  loggers:
+    enabled: true
+    sensitive: true
 jpa.default.properties.hibernate.hbm2ddl.auto: update
