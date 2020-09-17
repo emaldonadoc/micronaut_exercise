@@ -11,6 +11,7 @@ import io.micronaut.scheduling.TaskExecutors
 import io.micronaut.scheduling.annotation.ExecuteOn
 
 import javax.inject.Inject
+import javax.validation.Valid
 
 @Controller('/sku')
 @ExecuteOn(TaskExecutors.IO)
@@ -25,7 +26,7 @@ class SkuController {
   }
 
   @Put
-  HttpResponse saveSku(@Body SkuDto sku) {
+  HttpResponse saveSku(@Valid @Body SkuDto sku) {
     HttpResponse.created(skuService.saveSku(sku))
   }
 }
