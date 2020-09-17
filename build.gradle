@@ -1,5 +1,6 @@
 plugins {
     id "groovy"
+    id "jacoco"
     id "com.github.johnrengelman.shadow" version "6.0.0"
     id "application"
 }
@@ -32,10 +33,11 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("org.apache.logging.log4j:log4j-core:2.12.1")
 
+    runtimeOnly 'mysql:mysql-connector-java:5.1.47'
     runtimeOnly("org.apache.logging.log4j:log4j-api:2.12.1")
     runtimeOnly("org.apache.logging.log4j:log4j-slf4j-impl:2.12.1")
-    runtimeOnly("com.h2database:h2")
 
+    testImplementation("com.h2database:h2")
     testImplementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
     testImplementation("io.micronaut:micronaut-inject-groovy")
     testImplementation("org.spockframework:spock-core") {
@@ -52,6 +54,8 @@ mainClassName = "com.emc.warehouse.Application"
 test {
     useJUnitPlatform()
 }
+
+test.finalizedBy jacocoTestReport
 
 java {
     sourceCompatibility = JavaVersion.toVersion('8')
@@ -75,6 +79,21 @@ tasks.withType(JavaExec) {
             'micronaut.io.watch.enabled':'true',
             "micronaut.io.watch.paths":"src/main"
         )
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+    afterEvaluate {
+        files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+              '**/Application.*'
+            ])
+        })
     }
 }
 

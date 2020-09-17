@@ -5,8 +5,8 @@ import io.micronaut.http.HttpStatus
 import io.micronaut.http.exceptions.HttpStatusException
 
 @CompileStatic
-class NotFoundException extends HttpStatusException {
-  NotFoundException(String message) {
-    super(HttpStatus.NOT_FOUND, message)
+class SkuException extends HttpStatusException {
+  SkuException(String message) {
+    super(HttpStatus.CONFLICT, message)
   }
 }
