@@ -7,7 +7,7 @@ micronaut:
 datasources:
   default:
     url: jdbc:mysql://localhost:3306/hefemac_warehouse
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     username: root
     password: password
     schema-generate: UPDATE

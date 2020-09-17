@@ -2,11 +2,9 @@ package com.emc.warehouse.entities
 
 import com.emc.warehouse.dtos.SkuDto
 import com.emc.warehouse.enums.SkuType
+import org.codehaus.groovy.runtime.InvokerHelper
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 class Sku {
@@ -17,12 +15,14 @@ class Sku {
 
   String description
 
+  @Enumerated(EnumType.STRING)
   SkuType type
+
+  BigDecimal cost
 
   Sku() {}
 
   Sku(SkuDto skuDto) {
-    this.description = skuDto.description
-    this.type - skuDto.type
+    InvokerHelper.setProperties(this, skuDto.properties)
   }
 }
