@@ -39,10 +39,10 @@ class SkuControllerIntegrationSpec extends Specification {
     given:
       def skuRequest = new SkuDto(cost: 1000, description: 'test description', type: SkuType.FODDER)
     when:
-      def result = client.toBlocking().retrieve(HttpRequest.PUT('/sku', skuRequest), Sku)
+      def result = client.toBlocking().retrieve(HttpRequest.PUT('/sku', skuRequest))
 
     then:
-      result.id == 1000
+      result == '{"id":1000,"description":"test description","type":"FODDER","cost":1000}'
       1 * skuService.saveSku(_ as SkuDto) >> new Sku(id: 1000, cost: 1000, description: 'test description', type: SkuType.FODDER)
   }
 
